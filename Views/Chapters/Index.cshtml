@@ -1,0 +1,26 @@
+@model ChapterViewModel
+@{
+    ViewData["Title"] = "Chapters Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Chapters</h1>
+   </div>
+
+   <div class="text-right">
+    <a asp-controller="Chapters" asp-action="NewChapter" asp-route-id ="@ViewBag.StoryId" >New Chapter</a>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
+        <div class="posts-containter">
+            @foreach(var chapter in Model.ChaptersList)
+            {
+                 <div class="story border">
+                    <h2><a asp-controller="Chapters" asp-action="ChapterDetail" asp-route-id="@chapter.Id">@chapter.Title</a></h2>
+                    
+                 </div>
+            }
+            </div>
+    </div>
+</div>
